@@ -1,22 +1,32 @@
 <template>
   <div>
-    <b-navbar id="nav-bar" fixed="top">
+    <b-navbar 
+      id="nav-bar" 
+      fixed="top"
+      :class="{ 
+        'title-hidden': !showTitle, 
+        'title-show': showTitle,
+        'nav-transparent': !isTransparent,
+        'nav-opaque': isTransparent,
+        }">
       <b-navbar-brand href="/">
         <img src="../assets/acc.svg" 
           id="logo" 
           :class="{ 'title-hidden': !showTitle, 'title-show': showTitle }"/>
       </b-navbar-brand>
-
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
-
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
-          
+          <!-- Left aligned nav items -->
         </b-navbar-nav>
-
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
-          <router-link :to="'contact'" id="last-nav-link">contact</router-link>
+          <router-link 
+            :to="'contact'" 
+            id="last-nav-link"
+            :class="{ 'title-hidden': !showTitle, 'title-show': showTitle }">
+              contact
+          </router-link>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
@@ -31,41 +41,36 @@ export default Vue.extend({
   data () {
     return {
       showTitle: false,
-      lastScrollPosition: 0
+      lastScrollPosition: 0,
+      isTransparent: true,
     }
   },
-  
   mounted () {
-  window.addEventListener('scroll', this.onScroll)
+    window.addEventListener('scroll', this.onScroll)
   },
   beforeDestroy () {
     window.removeEventListener('scroll', this.onScroll)
   },
   methods: {
-  onScroll () {
-    // Get the current scroll position
-    const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop
-    // Because of momentum scrolling on mobiles, we shouldn't continue if it is less than zero
-    if (currentScrollPosition < 0) {
-      return
+    onScroll () {
+      const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop
+      if (currentScrollPosition < 0) {
+        return
+      }
+      this.showTitle = currentScrollPosition > this.lastScrollPosition
+      this.lastScrollPosition = currentScrollPosition
     }
-    // Here we determine whether we need to show or hide the navbar
-    this.showTitle = currentScrollPosition > this.lastScrollPosition
-    // Set the current scroll position as the last scroll position
-    this.lastScrollPosition = currentScrollPosition
   }
-}
 });
 </script>
 
 <style scoped lang="scss">
   .title-hidden {
-    transform: translate3d(0, -150%, 0);
+    transform: translate3d(0, -222%, 0);
     transition: 0.5s all ease-in-out;
   }
 
   .title-show {
-    transform: translate3d(0, 30%, 0);
     transition: 0.5s all ease-in-out;
   }
   
@@ -79,6 +84,14 @@ export default Vue.extend({
   }
 
   #nav-bar {
+    min-height: 6em;
+  }
+
+  .nav-opaque { 
+    background: black;
+  }
+  
+  .nav-tranparent {
     background: transparent;
   }
 
