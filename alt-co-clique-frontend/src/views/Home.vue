@@ -22,10 +22,10 @@ export default Vue.extend({
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 3em;
-    font-family: Helvetica;
+    font-family: 'Ropa Sans', sans-serif;
     color: rgb(240, 240, 240);
     font-weight: lighter;
-    letter-spacing: 10px;
+    letter-spacing: 15px;
   }
   
   #landing-image {
