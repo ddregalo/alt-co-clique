@@ -1,0 +1,24 @@
+/alt-co-clique-frontend/.DS_Store
+/alt-co-clique-frontend/node_modules
+/alt-co-clique-frontend/dist
+
+/alt-co-clique-frontend/tests/e2e/videos/
+/alt-co-clique-frontend/tests/e2e/screenshots/
+
+# local env files
+/alt-co-clique-frontend/.env.local
+/alt-co-clique-frontend/.env.*.local
+
+# Log files
+/alt-co-clique-frontend/npm-debug.log*
+/alt-co-clique-frontend/yarn-debug.log*
+/alt-co-clique-frontend/yarn-error.log*
+
+# Editor directories and files
+/alt-co-clique-frontend/.idea
+/alt-co-clique-frontend/.vscode
+/alt-co-clique-frontend/*.suo
+/alt-co-clique-frontend/*.ntvs*
+/alt-co-clique-frontend/*.njsproj
+/alt-co-clique-frontend/*.sln
+/alt-co-clique-frontend/*.sw*
