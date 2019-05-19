@@ -1,7 +1,9 @@
 <template>
   <div class="home">
     <b-img src="http://www.luapstudios.co.uk/sites/default/files/artwork/KK47_karen_el_khazen_guns_water_tank_elle_luap.JPG" fluid alt="Responsive image" id="landing-image" class="mw-100"></b-img>
-    <div class="banner-title">SITE COMING SOON</div>
+    <div class="banner-title">
+      <img src="../assets/white.svg" fluid alt="Responsive image"/>
+    </div>
   </div>
 </template>
 
@@ -18,7 +20,7 @@ export default Vue.extend({
 <style lang="scss" scoped>
   .banner-title {
     position: absolute;
-    top: 40%;
+    top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 3em;
