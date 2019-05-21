@@ -14,7 +14,6 @@
           id="logo" 
           :class="{ 'title-hidden': !showTitle, 'title-show': showTitle }"/>
       </b-navbar-brand>
-      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
           <!-- Left aligned nav items -->
@@ -29,7 +28,10 @@
           </router-link>
         </b-navbar-nav>
       </b-collapse>
+      <div id="nav-border">
+      </div>
     </b-navbar>
+      
   </div>
 </template>
 
@@ -65,6 +67,20 @@ export default Vue.extend({
 </script>
 
 <style scoped lang="scss">
+  .navbar {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    padding: 0;
+    align-items: end;
+  }
+  
+  .nav-opaque { 
+    background: black;
+  }
+  
+  .nav-tranparent {
+    background: transparent;
+  }
   .title-hidden {
     transform: translate3d(0, -222%, 0);
     transition: 0.5s all ease-in-out;
@@ -82,21 +98,36 @@ export default Vue.extend({
     font-size: 1.1em;
     font-family: 'Ropa Sans', sans-serif;
   }
+  
+  #logo {
+    margin-left: 4em;
+    max-height: 4em;
+  }
 
   #nav-bar {
     min-height: 6em;
   }
 
-  .nav-opaque { 
-    background: black;
-  }
-  
-  .nav-tranparent {
-    background: transparent;
+  #nav-border {
+    height: 0.1em;
+    width: 100%;
+    grid-column-start: 1;
+    grid-column-end: span col3-start;
+    -webkit-animation-name: colorPulse;
+    -webkit-animation-duration: 5s;
+    -webkit-animation-iteration-count: 10;
+    -webkit-animation-direction: alternate;
+    -webkit-animation-timing-function: ease-in;
+    -webkit-animation-fill-mode: forwards;
+    -webkit-animation-delay: 2s;
   }
 
-  #logo {
-    margin-left: 4em;
-    max-height: 4em;
-  }
+  @keyframes colorPulse {
+      0% {background-color: rgb(75, 255, 231);}
+     20% {background-color: rgb(230, 255, 92);}
+    40% {background-color: rgb(255, 211, 90);}
+    60% {background-color: rgb(255, 115, 236);}
+    80% {background-color: rgb(151, 95, 255);}
+    100% {background-color: rgb(47, 51, 255);}
+}
 </style>
