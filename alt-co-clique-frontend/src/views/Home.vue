@@ -1,17 +1,19 @@
 <template>
-  <div class="home">
-    <div class="slide">
-      <!-- <b-img src="http://www.luapstudios.co.uk/sites/default/files/artwork/KK47_karen_el_khazen_guns_water_tank_elle_luap.JPG" fluid alt="Responsive image" id="landing-image" class="mw-100"></b-img> -->
+  <body id="home-page">
+    <div class="home">
+      <div class="slide">
+        <!-- <b-img src="http://www.luapstudios.co.uk/sites/default/files/artwork/KK47_karen_el_khazen_guns_water_tank_elle_luap.JPG" fluid alt="Responsive image" id="landing-image" class="mw-100"></b-img> -->
+      </div>
+      <div class="banner-title">
+        <img src="../assets/white.svg" fluid alt="Responsive image"/>
+      </div>
+      <div class="home-content-overlay">
+        Scroll Up and Down this page to see the parallax scrolling effect.
+        This div is just here to enable scrolling.
+        Tip: Try to remove the background-attachment property to remove the scrolling effect.
+      </div>
     </div>
-    <div class="banner-title">
-      <img src="../assets/white.svg" fluid alt="Responsive image"/>
-    </div>
-    <div class="home-content-overlay">
-      Scroll Up and Down this page to see the parallax scrolling effect.
-      This div is just here to enable scrolling.
-      Tip: Try to remove the background-attachment property to remove the scrolling effect.
-    </div>
-  </div>
+  </body>
 </template>
 
 <script lang="ts">

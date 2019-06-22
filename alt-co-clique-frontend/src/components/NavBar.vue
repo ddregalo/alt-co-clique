@@ -48,7 +48,11 @@ export default Vue.extend({
     }
   },
   mounted () {
-    window.addEventListener('scroll', this.onScroll)
+    if (document.getElementById("home-page")){
+      window.addEventListener('scroll', this.onScroll);
+    } else {
+      this.showTitle = true;
+    }
   },
   beforeDestroy () {
     window.removeEventListener('scroll', this.onScroll)
